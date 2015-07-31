@@ -13,3 +13,7 @@ Template.game.onCreated(function(){
     }
   });
 });
+
+Template.game.onRendered(function() {
+  $('.ui.basic.modal') .modal('show');
+});
