@@ -5,3 +5,7 @@ Meteor.publish('movements', function() {
 Movements.allow({
   insert: function(userId, doc) {return true;}
 });
+
+Movements.after.insert(function(userId, doc){
+  Movements.remove({createdAt: {$lt: doc.createdAt}});
+});
